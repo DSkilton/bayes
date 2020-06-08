@@ -13,17 +13,17 @@ public class BayesRule {
         PriorOdds priorOdds = new PriorOdds();
         int iPriorOdds = priorOdds.priorOdds(206,365);
         System.out.println(priorOdds.getA() + "/" + priorOdds.getB());
-        System.out.println("");
         
         LikelihoodRatio likelihoodRatio = new LikelihoodRatio();
         int iLikelihoodRatio = (int)likelihoodRatio.likelihoodRatio(9, 1);
         System.out.println(iLikelihoodRatio);
-        System.out.println("");
         
         PosteriorOdds posteriorOdds = new PosteriorOdds();
         int iPosteriorOdds = (int)posteriorOdds.posteriorOdds();
         System.out.println(iPosteriorOdds + ":" + iPriorOdds);
 
+        System.out.println("");
+        
         PriorOdds priorOddsBC = new PriorOdds();
         int iPriorOddsBC = priorOddsBC.priorOdds(5, 95);
         System.out.println(priorOddsBC.getA() + ":" + priorOddsBC.getB());
