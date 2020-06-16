@@ -7,7 +7,7 @@ package bayesrule;
  *
  * @author Duncan Skilton
  */
-public class Fraction {
+public final class Fraction {
     private int iNumerator;
     private int iDenominator;
     
@@ -34,10 +34,10 @@ public class Fraction {
     }
     
     public int commonDen(int iNum, int iDen){
-        if(getiNumerator() % getiDenominator() == 0){
+        if((getiNumerator() % getiDenominator()) == 0){
             return getiDenominator();
         }
-        return commonDen(getiDenominator(), getiNumerator() % getiDenominator());
+        return 1;
     }
     
     public void reduce(){
@@ -46,10 +46,11 @@ public class Fraction {
         setiDenominator(getiDenominator() / commonDen);
     }
     
-    public Fraction divide(Fraction fractionTwo){
-        int iNum2 = getiNumerator() * fractionTwo.getDenominator();
-        int iDen2 = getiDenominator() * fractionTwo.getiNumerator();
-        Fraction result = new Fraction(iNum2, iDen2);
+    public static Fraction divide(int iNum1, int iDen1, int iNum2, int iDen2){
+        int iNewNum = iNum1 * iDen2;
+        int iNewDen = iDen1 * iNum2;
+        Fraction result = new Fraction(iNewNum, iNewDen);
+        
         return result;
     }
     
@@ -58,10 +59,7 @@ public class Fraction {
         return this.getiNumerator() + "/" + this.getiDenominator();
     }
 
-    /**
-     * @return the iNumerator
-     */
-    public int getiNumerator() {
+   public int getiNumerator() {
         return iNumerator;
     }
 
